@@ -15,3 +15,19 @@ fun isValid():Boolean {
     return is_all_letter(word)
 
 }
+fun is_all_letter(word:String):Boolean{
+    for (char in word){
+        if(char.isLetter()){
+            continue
+        else{return false}
+        }
+    }
+    return true
+}
+fun pickRandomWord(word:MutableList<String>):String{
+    val random_index=(0 until word.size).random
+    val chosen=word.random
+    word.removeAt(random_index)
+
+}
+return chosen
