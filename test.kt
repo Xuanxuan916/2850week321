@@ -57,3 +57,19 @@ fun evaluateGuess(guess:String,target:String):List<Int>{
         throw IllegalArgumentException("guess and target should both contains exactly 5 letters")
     }
 }
+fun obtainGuess(attempt:Int):String{
+    while(true){
+        println("Attempt $attempt:")
+        val input=readLine()
+        val guess = input?.trim() ?: ""
+        if(is_valid(guess)){
+            return guess
+        else{
+            println("Please enter exactly 5 letters!")
+        }    
+
+        }
+
+    }
+
+}
