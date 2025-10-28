@@ -12,7 +12,17 @@ fun generate_random_word(): String {
     return word.toString()
 }
 
-fun generate_wordles(num: Int, filename: String) {
+fun   println(wordList)
+
+    java.io.File(filename).writeText(wordList.joinToString("\n"))
+    println("Successfully generated $num words and saved to $filename")
+    return
+}
+
+fun read_word_list(filename: String): MutableList<String> {
+    // Reads Wordle target words from the specified file, returning them as a list of strings.
+    return java.io.File(filename).readLines().toMutableList()
+}generate_wordles(num: Int, filename: String) {
     // generate `num` wordles, result will be written to `filename`
     // if `filename` exists, original content will be overwriteen
     println("generating wordle, need " + num + " words, saving to " + filename)
@@ -25,17 +35,7 @@ fun generate_wordles(num: Int, filename: String) {
         wordList.add(randomWord)
     }
 
-//    println(wordList)
-
-    java.io.File(filename).writeText(wordList.joinToString("\n"))
-    println("Successfully generated $num words and saved to $filename")
-    return
-}
-
-fun read_word_list(filename: String): MutableList<String> {
-    // Reads Wordle target words from the specified file, returning them as a list of strings.
-    return java.io.File(filename).readLines().toMutableList()
-}
+//  
 
 fun is_all_letter(word: String): Boolean {
     for (char in word) {

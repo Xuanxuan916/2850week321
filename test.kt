@@ -31,3 +31,29 @@ fun pickRandomWord(word:MutableList<String>):String{
 
 }
 return chosen
+fun displayGuess(guess:String,matches:List<Int>){
+    var display=""
+    for (i in 0 until 5){
+        if (match[i]=1){
+            display+=guess[i]
+        }
+        else{
+            display+= "?"
+        }
+    }
+    println(display)
+}
+fun evaluateGuess(guess:String,target:String):List<Int>{
+    var ans = mutableListOf<Int>()
+    for (i in 0 until 5){
+        if(guess[i]=target[i]){
+            ans.add(1)
+        else{
+            ans.add(0)
+        }
+        }
+    }
+    if(guess.length != 5 || target.length != 5){
+        throw IllegalArgumentException("guess and target should both contains exactly 5 letters")
+    }
+}
